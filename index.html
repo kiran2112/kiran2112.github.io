@@ -6,24 +6,274 @@
 -->
 <html>
 	<head>
-		<title>Kiran Ravikumar</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/academicons-1.9.3/css/academicons.css" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+      <title>Kiran Ravikumar</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="assets/academicons-1.9.3/css/academicons.css" />
+      <link rel="stylesheet" href="assets/css/main.css" />
+      <link rel="stylesheet" href="assets/css/theme.css" />
+      <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      <style>
+         /* Header styling for more prominence */
+         #header h1 {
+             font-family: 'Impact', 'Arial Black', sans-serif;
+             font-size: 4em;
+             font-weight: 800;
+             text-transform: uppercase;
+             color: #003366; /* Dark blue */
+             letter-spacing: 0.05em;
+             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+             margin-bottom: 0em;
+         }
+         
+         /* Subheader styling */
+         #header p {
+             font-size: 1.5em;
+             font-weight: 600;
+             color: #1e90ff; /* Dodger blue */
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+         }
+         
+         /* Section headers */
+         header.major h2 {
+             font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+             font-weight: bold;
+             color: #003366; /* Dark blue */
+             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+         }
+         
+         /* Remove the box and make header blend with background */
+         #header.alt {
+             background: none; /* Remove background */
+             padding: 1em 0; /* Reduce padding to 1em */
+             border-radius: 0; /* Remove border radius */
+             margin-bottom: 0em; /* Further reduce margin-bottom to 0em */
+         }
+         
+         /* Logo styling */
+         #header .logo img {
+             max-width: 150px;
+             margin-bottom: 0em;
+         }
+         
+         /* Modern button styling for all buttons */
+         .button.primary {
+             display: inline-flex;
+             align-items: center;
+             padding: 0.75em 1.5em;
+             border-radius: 50px;
+             background: linear-gradient(135deg, #003366 0%, #1e90ff 100%);
+             border: none;
+             color: white !important;
+             font-weight: 600;
+             letter-spacing: 0.05em;
+             box-shadow: 0 4px 15px rgba(30, 144, 255, 0.4);
+             transition: all 0.3s ease;
+             position: relative;
+             overflow: hidden;
+             text-decoration: none;
+         }
+         
+         .button.primary:before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+             transition: all 0.4s ease-in-out;
+         }
+         
+         .button.primary:hover {
+             transform: translateY(-3px);
+             box-shadow: 0 7px 20px rgba(30, 144, 255, 0.5);
+             background: linear-gradient(135deg, #00264d 0%, #0066cc 100%);
+         }
+         
+         .button.primary:hover:before {
+             left: 100%;
+         }
+         
+         /* Add arrow to buttons */
+         .button.primary:after {
+             content: '→';
+             margin-left: 10px;
+             font-weight: bold;
+             transition: transform 0.3s ease;
+         }
+         
+         .button.primary:hover:after {
+             transform: translateX(5px);
+             display: inline-block;
+         }
+
+         .education-cards-container {
+             display: flex;
+             flex-direction: row;
+             flex-wrap: nowrap;
+             justify-content: center;
+             gap: 30px;
+             margin-bottom: 3em;
+             width: 100%;
+             position: relative;
+         }
+         
+         .edu-card-container {
+             width: 250px;
+             height: 180px;
+             flex: 0 0 auto;
+             position: relative;
+             transition: all 0.3s ease;
+             z-index: 1;
+         }
+         
+         .edu-card-container:hover {
+             z-index: 100; /* Ensure hovered card is above others */
+         }
+         
+         .edu-card {
+             position: relative;
+             width: 100%;
+             height: 100%;
+             cursor: pointer;
+             border-radius: 10px;
+             background: linear-gradient(135deg, #e6f2ff 0%, #ffffff 100%);
+             border-left: 5px solid #1e90ff;
+             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+             transition: all 0.3s ease;
+             overflow: hidden;
+         }
+         
+         .edu-card-inner {
+             position: relative;
+             width: 100%;
+             height: 100%;
+             transition: transform 0.4s ease-out;
+         }
+         
+         .edu-card-front, .edu-card-back {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             padding: 20px;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             transition: opacity 0.4s ease;
+         }
+         
+         .edu-card-front {
+             text-align: center;
+             opacity: 1;
+         }
+         
+         .edu-card-back {
+             text-align: left;
+             opacity: 0;
+         }
+         
+         .edu-card:hover {
+             width: 400px; /* Expanded width */
+             transform: translateX(-75px);
+             box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+         }
+         
+         .edu-card:hover .edu-card-front {
+             opacity: 0; /* Hide front on hover */
+         }
+         
+         .edu-card:hover .edu-card-back {
+             opacity: 1; /* Show back on hover */
+         }
+         
+         .degree {
+             font-size: 1.8em;
+             font-weight: bold;
+             color: #003366;
+             margin-bottom: 5px;
+         }
+         
+         .school {
+             font-size: 1.1em;
+             color: #1e90ff;
+             margin-bottom: 5px;
+         }
+         
+         .year {
+             font-size: 1em;
+             color: #666;
+             margin-bottom: 10px;
+         }
+         
+         .hover-hint {
+             font-size: 0.8em;
+             color: #999;
+             font-style: italic;
+             margin-top: 10px;
+             opacity: 0.7;
+         }
+         
+         .edu-card-back h4 {
+             color: #003366;
+             margin: 0 0 10px 0;
+             text-align: center;
+             font-size: 1.2em;
+         }
+         
+         .edu-card-back p {
+             margin: 5px 0;
+             font-size: 0.9em;
+             color: #444;
+         }
+         
+         .edu-card-back p strong {
+             color: #1e90ff;
+         }
+         
+         /* For mobile responsiveness */
+         @media screen and (max-width: 767px) {
+             .education-cards-container {
+                 flex-direction: column;
+                 align-items: center;
+                 gap: 20px;
+             }
+             
+             .edu-card-container {
+                 width: 90%;
+                 max-width: 300px;
+                 margin-bottom: 20px;
+             }
+             
+             .edu-card:hover {
+                 width: 90%;
+                 max-width: 400px;
+                 transform: translateX(0); /* No horizontal shift on mobile */
+             }
+             
+             .edu-card-container:hover ~ .edu-card-container {
+                 transform: translateX(0); /* No push effect on mobile */
+             }
+         }
+     </style>
+     <!-- Add Font Awesome for icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-                  <!--<span class="logo"><img src="images/logo.svg" alt="" /></span>-->
-						<h1>Kiran Ravikumar</h1>
-                  <p>Software Engineer<br />Cray Scientific and Math Libraries</a></p>
-					</header>
+               <header id="header" class="alt">
+                  <h1>Kiran Ravikumar</h1>
+                    <span class="logo" style="background: none;"><img src="images/Aero-logo.png" alt="Aeronautics Logo" /></span>
+                     <p><span style="font-size: 1.5em; color: #003366;">Research Scientist/Engineer</span><br />
+                   <span style="font-size: 0.9em; font-style: italic; color: #0066cc;">Science and Technology Corporation</span><br />
+                   <span style="font-size: 0.9em; color: #0066cc;">NASA Ames Research Center</span></p>
+               </header>
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -45,40 +295,104 @@
 										<header class="major">
 											<h2>About Me</h2>
 										</header>
-										<p>I am a software engineer in the Cray Scientific and Math Libraries
-                              team at HPE. I develop and optimize numerical libraries like BLAS, LAPACK,
-                              PBLAS and SCALAPACK for AMD and NVIDIA GPU targets.
-                              I have a PhD in Aerospace engineering from Georgia Institute
-                              of Technology. My thesis research involved studying the fundamental
-                              behavior of Turbulence fluid flows using optimized high resolution
-                              pseudo‐spectral Direct Numerical Simulations on large scale supercomputers.
-                              </p>
-										<ul class="actions">
-											<li><a href="files/KiranRavikumar_CV.pdf" class="button primary" target="_blank">CV</a></li>
-										</ul>
+										<p>
+                                 I am a Research Scientist/Engineer at NASA Ames Research Center,
+                                 specializing in high-performance computing (HPC) and computational fluid dynamics (CFD)
+                                 to advance aerospace simulations.
+                                 <span class="highlight-text">My work focuses on developing
+                                 and optimizing CFD algorithms for cutting edge aerodynamics simulations
+                                 simulations, leveraging GPU computing and modern supercomputers
+                                 to push the boundaries of fluid dynamics research.</span>
+                             </p>
+                             <p>
+                              With a PhD in Aerospace Engineering from Georgia Tech,
+                              I have conducted world-record turbulence simulations exceeding
+                              5 trillion grid points, driving new insights into turbulence, mixing,
+                              and high-Reynolds-number flows. My expertise lies in performance
+                              optimization, leadership-class computing, and advancing CFD
+                              methodologies for applications ranging from aerodynamic flows to
+                              high-lift aircraft simulations.
+                             </p>
+                             <p>
+                                 <span class="special-highlight">Passionate about advancing aerospace flow simulations,</span>
+                                 I develop and optimize cutting-edge CFD algorithms to harness the full potential of
+                                 state-of-the-art GPUs. By improving computational efficiency and scalability, my work
+                                 enables high-fidelity simulations of complex aerodynamic phenomena, from transonic buffet
+                                 effects to high-lift aircraft aerodynamics. Through innovative HPC techniques, I strive
+                                 to push the boundaries of what is possible in fluid dynamics, making next-generation
+                                 aerospace simulations faster, more accurate, and more efficient.
+                             </p>
+                             <ul class="actions">
+                              <li><a href="files/KiranRavikumar_CV.pdf" class="button primary" target="_blank"><i class="fas fa-file-alt" style="margin-right: 10px;"></i>CV</a></li>
+                             </ul>
 									</div>
-									<span class="image"><img src="images/KiranRavikumar.jpg" alt="" /></span>
+									<span class="image"><img src="images/KiranRavikumar.jpg" alt="Kiran Ravikumar" /></span>
 								</div>
-                        <h3><u>Education</u></h3>
-								<div class="content">
-                           <p style="text-align:left;">
-                              <b>Georgia Institute of Technology, Atlanta, USA</b>
-                              <span style="float:right;">
-                                 Aug 2017 - Aug 2021
-                              </span></br>
-                              Doctor of Philosophy (PhD), School of Aerospace Engineering</br>
-                              <b>Georgia Institute of Technology, Atlanta, USA</b>
-                              <span style="float:right;">
-                                 Aug 2015 - May 2018
-                              </span></br>
-                              Master of Science, School of Aerospace Engineering</br>
-                              <b>Manipal Institute of Technology, Manipal, India</b>
-                              <span style="float:right;">
-                                 July 2011 - May 2015
-                              </span></br>
-                              Bachelor of Technology, Department of Aeronautical Engineering
-                           </p>
-								</div>
+                        <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="education-cards-container">
+                            <!-- PhD Card -->
+                            <div class="edu-card-container">
+                                <div class="edu-card">
+                                    <div class="edu-card-inner">
+                                        <div class="edu-card-front">
+                                            <div class="degree">PhD</div>
+                                            <div class="school">Georgia Tech</div>
+                                            <div class="year">2017-2021</div>
+                                            <div class="hover-hint">Hover for details</div>
+                                        </div>
+                                        <div class="edu-card-back">
+                                            <h4>Doctor of Philosophy</h4>
+                                            <p><strong>Institution:</strong> Georgia Institute of Technology</p>
+                                            <p><strong>Department:</strong> School of Aerospace Engineering</p>
+                                            <p><strong>Location:</strong> Atlanta, USA</p>
+                                            <p><strong>Period:</strong> August 2017 - August 2021</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Master's Card -->
+                            <div class="edu-card-container">
+                                <div class="edu-card">
+                                    <div class="edu-card-inner">
+                                        <div class="edu-card-front">
+                                            <div class="degree">MS</div>
+                                            <div class="school">Georgia Tech</div>
+                                            <div class="year">2015-2018</div>
+                                            <div class="hover-hint">Hover for details</div>
+                                        </div>
+                                        <div class="edu-card-back">
+                                            <h4>Master of Science</h4>
+                                            <p><strong>Institution:</strong> Georgia Institute of Technology</p>
+                                            <p><strong>Department:</strong> School of Aerospace Engineering</p>
+                                            <p><strong>Location:</strong> Atlanta, USA</p>
+                                            <p><strong>Period:</strong> August 2015 - May 2018</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bachelor's Card -->
+                            <div class="edu-card-container">
+                                <div class="edu-card">
+                                    <div class="edu-card-inner">
+                                        <div class="edu-card-front">
+                                            <div class="degree">BTech</div>
+                                            <div class="school">Manipal Institute</div>
+                                            <div class="year">2011-2015</div>
+                                            <div class="hover-hint">Hover for details</div>
+                                        </div>
+                                        <div class="edu-card-back">
+                                            <h4>Bachelor of Technology</h4>
+                                            <p><strong>Institution:</strong> Manipal Institute of Technology</p>
+                                            <p><strong>Department:</strong> Department of Aeronautical Engineering</p>
+                                            <p><strong>Location:</strong> Manipal, India</p>
+                                            <p><strong>Period:</strong> July 2011 - May 2015</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 							</section>
 
 						<!-- First Section -->
@@ -97,9 +411,9 @@
                         </p>
                         </br>
 								<ul class="actions special">
-									<li><a href="https://smartech.gatech.edu/bitstream/handle/1853/66050/RAVIKUMAR-DISSERTATION-2021.pdf?sequence=1&isAllowed=y" class="button primary" target="_blank">Dissertation</a></li>
-									<li><a href="files/KR_Defense_Presentation.pdf" class="button primary" target="_blank">Defense Presentation</a></li>
-								</ul>
+                           <li><a href="https://smartech.gatech.edu/bitstream/handle/1853/66050/RAVIKUMAR-DISSERTATION-2021.pdf?sequence=1&isAllowed=y" class="button primary" target="_blank"><i class="fas fa-book" style="margin-right: 10px;"></i>Dissertation</a></li>
+                           <li><a href="files/KR_Defense_Presentation.pdf" class="button primary" target="_blank"><i class="fas fa-presentation" style="margin-right: 10px;"></i>Defense Presentation</a></li>
+                        </ul>
 							</section>
 
 						<!-- Second Section -->
@@ -190,7 +504,7 @@
                            </br>
                            Performance, Portability and Productivity in HPC forum, Virtual.
 									</li>
-                           <li>Ravikumar, K., Yeung, P. K. and Clay, M. P. (<b>November 2019</b>) </br>
+                           <li>Ravikumar, K., Appelhans, D. and Yeung, P. K. (<b>November 2019</b>) </br>
                            <a href="https://meetings.aps.org/Meeting/DFD19/Session/C15.5" target="_blank">
                            <i>Differential diffusion and spectral transfer in turbulent mixing at high Schmidt numbers</i>
                            </a></br>
