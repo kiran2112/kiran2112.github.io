@@ -121,7 +121,7 @@
          
          .edu-card-container {
              width: 250px;
-             height: 180px;
+             height: 200px; /* Increased height by 10% (from 180px to 198px) */
              flex: 0 0 auto;
              position: relative;
              transition: all 0.3s ease;
@@ -257,6 +257,37 @@
                  transform: translateX(0); /* No push effect on mobile */
              }
          }
+
+         .research-section {
+             display: flex;
+             flex-direction: column;
+             gap: 20px;
+             margin-bottom: 3em;
+         }
+
+         .research-item {
+             padding: 20px;
+             border-radius: 10px;
+             background: linear-gradient(135deg, #e6f2ff 0%, #ffffff 100%);
+             border-left: 5px solid #1e90ff;
+             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+         }
+
+         .research-title {
+             font-size: 1.5em;
+             font-weight: bold;
+             color: #003366;
+             margin-bottom: 10px;
+         }
+
+         .research-details {
+             font-size: 1em;
+             color: #444;
+         }
+
+         .research-details strong {
+             color: #1e90ff;
+         }
      </style>
      <!-- Add Font Awesome for icons -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -271,7 +302,7 @@
                   <h1>Kiran Ravikumar</h1>
                     <span class="logo" style="background: none;"><img src="images/Aero-logo.png" alt="Aeronautics Logo" /></span>
                      <p><span style="font-size: 1.5em; color: #003366;">Research Scientist/Engineer</span><br />
-                   <span style="font-size: 0.9em; font-style: italic; color: #0066cc;">Science and Technology Corporation</span><br />
+                   <span style="font-size: 0.9em; font-style: italic; color: #0066cc;">Analytical Mechanics and Associates</span><br />
                    <span style="font-size: 0.9em; color: #0066cc;">NASA Ames Research Center</span></p>
                </header>
 
@@ -400,17 +431,20 @@
 								<header class="major">
                            <center><h2>Research</h2></center>
 								</header>
-                        <p>
-                        <b>Doctoral Thesis</b> (defended July 30, 2021)</br>
-                        <b><u>Title:</u></b> Extreme-scale computing and studies of intermittency, mixing of passive scalars and stratified flows in turbulence </br>
-                        <b><u>Committee Members:</u></b> <a href="https://ae.gatech.edu/directory/person/pui-kuen-yeung" target="_blank">Prof. P. K. Yeung</a> (advisor),
-                        <a href="https://engineering.nyu.edu/faculty/katepalli-sreenivasan" target="_blank">Prof. K. R Sreenivasan</a>,
-                        <a href="https://www.me.gatech.edu/faculty/ranjan" target="_blank">Prof. D. Ranjan</a>,
-                        <a href="https://ae.gatech.edu/directory/person/suresh-menon" target="_blank">Prof. S. Menon</a>
-                        and <a href="https://vuduc.org/v2/" target="_blank">Prof. R. Vuduc</a>
-                        </p>
-                        </br>
-								<ul class="actions special">
+                        <div class="research-section">
+                            <!-- Doctoral Thesis -->
+                            <div class="research-item">
+                                <div class="research-title">Doctoral Thesis</div>
+                                <div class="research-details">
+                                    <p><strong>Title:</strong> Extreme-scale computing and studies of intermittency, mixing of passive scalars and stratified flows in turbulence</p>
+                                    <p><strong>Defended:</strong> July 30, 2021</p>
+                                    <p><strong>Advisor:</strong> <a href="https://ae.gatech.edu/directory/person/pui-kuen-yeung" target="_blank">Prof. P. K. Yeung</a></p>
+                                    <p><strong>Committee:</strong> <a href="https://engineering.nyu.edu/faculty/katepalli-sreenivasan" target="_blank">Prof. K. R. Sreenivasan</a>, <a href="https://www.me.gatech.edu/faculty/ranjan" target="_blank">Prof. D. Ranjan</a>, <a href="https://ae.gatech.edu/directory/person/suresh-menon" target="_blank">Prof. S. Menon</a>, <a href="https://vuduc.org/v2/" target="_blank">Prof. R. Vuduc</a></p>
+                                </div>
+                            </div>
+                            <!-- Add more research items as needed -->
+                        </div>
+                        <ul class="actions special">
                            <li><a href="https://smartech.gatech.edu/bitstream/handle/1853/66050/RAVIKUMAR-DISSERTATION-2021.pdf?sequence=1&isAllowed=y" class="button primary" target="_blank"><i class="fas fa-book" style="margin-right: 10px;"></i>Dissertation</a></li>
                            <li><a href="files/KR_Defense_Presentation.pdf" class="button primary" target="_blank"><i class="fas fa-presentation" style="margin-right: 10px;"></i>Defense Presentation</a></li>
                         </ul>
@@ -548,20 +582,6 @@
                            <a href="https://www.youtube.com/watch?v=_TlyHtqwc_4" target="_blank"><i>[video]</i></a>
                            </br>
                            3<sup>rd</sup> OpenPOWER Academia Discussion Group Workshop, Dallas, TX.
-									</li>
-								</ol>
-                        
-                        <b>Manuscripts under Preparation</b>
-								<ol>
-                           <li>Ravikumar, K., Sreenivasan, K. R. and Yeung, P. K. (expected <b>2023</b>) </br>
-                           <i>Extreme dissipation and its multifractal nature at high Reynolds numbers</i>
-                           </br>
-                           Journal of Fluid Mechanics.
-									</li>
-                           <li>(expected <b>2023</b>) </br>
-                           <i>Exascale pseudo-spectral Direct Numerical Simulation of isotropic turbulence using Frontier</i>
-                           </br>
-                           Computer Physics Communication.
 									</li>
 								</ol>
 							</section>
